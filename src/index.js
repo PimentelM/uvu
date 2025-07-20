@@ -126,6 +126,8 @@ function setup(ctx, name = '') {
 export const suite = (name = '', state = {}) => setup(context(state), name);
 export const test = suite();
 
+export const silence = () => { write = (...args) => {} };
+
 let isRunning = false;
 export async function exec(bail) {
 	let timer = hrtime();
