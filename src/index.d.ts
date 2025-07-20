@@ -7,6 +7,11 @@ declare namespace uvu {
 		each(hook: Callback<T>): void;
 	}
 
+	interface InternalTest {
+		name: string;
+    	handler: (state: Record<string, any>) => Promise<void>;
+	}
+
 	interface Test<T> {
 		(name: string, test: Callback<T>): void;
 		only(name: string, test: Callback<T>): void;
@@ -14,6 +19,16 @@ declare namespace uvu {
 		before: Hook<T>;
 		after: Hook<T>
 		run(): void;
+
+		ctx: {
+			state: Record<string, any> & uvu.Crumbs;
+			tests: InternalTest[];
+    	};
+
+		// Methods for the suite
+		getName(): string;
+		getTests(): InternalTest[];
+		getOnlys(): InternalTest[];
 	}
 }
 
