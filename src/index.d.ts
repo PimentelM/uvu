@@ -22,6 +22,8 @@ type Context = Record<string, any>;
 export type Test<T=Context> = uvu.Test<T>;
 export type Callback<T=Context> = uvu.Callback<T>;
 
+export const silence = () => void;
+
 export const test: uvu.Test<Context>;
 export function suite<T=Context>(title?: string, context?: T): uvu.Test<T>;
 export function exec(bail?: boolean): Promise<void>;
