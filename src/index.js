@@ -106,6 +106,7 @@ function setup(ctx, name = '') {
 	ctx.state.__test__ = '';
 	ctx.state.__suite__ = name;
 	const test = into(ctx, 'tests');
+	test.ctx = ctx;
 	test.before = hook(ctx, 'before');
 	test.before.each = hook(ctx, 'bEach');
 	test.after = hook(ctx, 'after');
