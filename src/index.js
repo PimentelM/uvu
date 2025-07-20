@@ -125,6 +125,13 @@ function setup(ctx, name = '') {
 		UVU_QUEUE[globalThis.UVU_INDEX || 0].push(run);
 		isCLI || defer();
 	};
+
+	if(!globalThis.UVU_SUITES){
+		globalThis.UVU_SUITES = [];
+	}
+
+	globalThis.UVU_SUITES.push(test);
+
 	return test;
 }
 

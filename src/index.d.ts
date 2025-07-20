@@ -32,6 +32,10 @@ declare namespace uvu {
 	}
 }
 
+declare global {
+	UVU_SUITES: uvu.Test<T>[];
+}
+
 type Context = Record<string, any>;
 
 export type Test<T = Context> = uvu.Test<T>;
